@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SubHub — Управление подписками</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="app-container">
+    <div class="top-bar">
+        <div class="logo" id="logoClick">SubHub</div>
+        <div class="user-menu">
+            <button class="profile-btn" id="profileBtn">Профиль</button>
+            <button class="logout-btn" id="logoutBtn" style="display: none;">Выйти</button>
+        </div>
+    </div>
+
+    <div id="catalogPage">
+        <div class="catalog-section">
+            <div class="catalog-title">Каталог сервисов</div>
+            <div class="catalog-subtitle">Выберите подписки — для добавления войдите в профиль</div>
+            <div class="services-grid" id="servicesGrid"></div>
+        </div>
+    </div>
+
+    <div id="profilePage" style="display: none;">
+        <div class="profile-section">
+            <div class="profile-header">
+                <div class="avatar" id="avatar">A</div>
+                <div class="profile-info">
+                    <h2 id="profileName">Пользователь</h2>
+                    <div class="profile-stats">
+                        <div class="stat-card">
+                            <div class="stat-number" id="totalSubs">0</div>
+                            <div class="stat-label">Всего подписок</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="activeSubs">0</div>
+                            <div class="stat-label">Активных</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="monthlyCost">0</div>
+                            <div class="stat-label">₽/месяц</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-block">
+                <div class="profile-block-title">Личная информация</div>
+                <div class="info-grid">
+                    <div class="info-field">
+                        <div class="info-label">Имя пользователя</div>
+                        <div class="info-value"><span id="displayUsername">-</span><button class="edit-btn" onclick="editField('username')">✏️</button></div>
+                    </div>
+                    <div class="info-field"><div class="info-label">Логин</div><div class="info-value"><span id="displayLogin">-</span></div></div>
+                    <div class="info-field"><div class="info-label">Email</div><div class="info-value"><span id="displayEmail">-</span><button class="edit-btn" onclick="editField('email')">✏️</button></div></div>
+                    <div class="info-field"><div class="info-label">Телефон</div><div class="info-value"><span id="displayPhone">-</span><button class="edit-btn" onclick="editField('phone')">✏️</button></div></div>
+                    <div class="info-field"><div class="info-label">Дата регистрации</div><div class="info-value"><span id="registerDate">-</span></div></div>
+                    <div class="info-field"><div class="info-label">Изменить пароль</div><div class="info-value"><button class="edit-btn" onclick="changePassword()">🔒 Сменить</button></div></div>
+                </div>
+            </div>
+
+            <div class="profile-block">
+                <div class="profile-block-title">Мои подписки</div>
+                <div id="userSubscriptionsList" class="subscription-list"></div>
+            </div>
+
+            <div class="profile-block">
+                <div class="profile-block-title">Мои предпочтения</div>
+                <div class="preferences-container">
+                    <div class="pref-group"><h4>Любимые категории</h4><div class="tag-list" id="categoriesList"></div></div>
+                    <div class="pref-group"><h4>Любимые платформы</h4><div class="tag-list" id="platformsList"></div></div>
+                    <button class="btn-continue" id="savePrefsBtn">Сохранить предпочтения</button>
+                </div>
+            </div>
+            <button class="btn-continue" id="backToCatalogBtn">← Назад к каталогу</button>
+        </div>
+    </div>
+</div>
+<script src="/static/script.js"></script>
+</body>
+</html>
